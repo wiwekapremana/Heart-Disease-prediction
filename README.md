@@ -89,16 +89,34 @@ Kemudian melakukan proses Train-Test Split. Dimana proses ini adalah pembagian d
 Pada Proyek yang dibuat, digunakan model Machine Learning yaitu Logistic Regression, KNN, dan Random Forest. Model tersebut digunakan karena permasalahan dari model Machine Learning yang saya buat adalah permasalahan regresi. Pada tahap ini saya juga melakukan improvement terhadap model dengan menggunakan hyperparameter tuning. Pada Logistic Regression menggunakan parameter random_state=0, pada KNN menggunakan parameter n_neighbors=7, dan pada Random Forest menggunakan parameter n_estimators=100, random_state=0. Lalu untuk membandingkan ketiga model yang saya gunakan ini dilakukan perhitungan dari nilai accuracy_score dari data. Setelah dilakukan pelatihan maka dapat disimpulkan bahwa dengan menggunakan model Random Forest Regression dimana pada model ini memiliki accuracy tertinggi pada f1-score yaitu 100%.
 
 ## Evaluation
-Pada tahap evaluation akan dijelaskan mengenai metrik yang digunakan dalam prediksi proyek saya dengan menggunakan metrik accuracy f1-score, recall, dan precision. Pada gambar di bawah ini ditampilkan secara detail hasil pengukuran model dengan algoritma Random Forest dengan metriks akurasi, _f1-score_, _recall_, dan _precision_.. Dimana Akurasi merupakan metrik untuk menghitung nilai ketepatan model dalam memprediksi data dengan data yang sebenarnya. Semakin tinggi nilai accuracy, semakin dekat nilai yang diprediksi dan diamati. Untuk menghitung nilai dari Akurasi menggunakan rumus berikut:
-
+Pada tahap evaluation akan dijelaskan mengenai metrik yang digunakan dalam prediksi proyek saya dengan menggunakan metrik accuracy f1-score, recall, dan precision. Pada gambar di bawah ini ditampilkan secara detail hasil pengukuran model dengan algoritma Random Forest dengan metriks akurasi, _f1-score_, _recall_, dan _precision_.. 
+* Akurasi 
+merupakan metrik untuk menghitung nilai ketepatan model dalam memprediksi data dengan data yang sebenarnya. Semakin tinggi nilai accuracy, semakin dekat nilai yang diprediksi   dan diamati. Untuk menghitung nilai dari Akurasi menggunakan rumus berikut:
 ![Rumus](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/acc.png?raw=true)</br>
-
 Keterangan: 
 * accuracy = Nilai akurasi
 * n = jumlah data sampel
 * i = urutan data
 * Y = Nilai hasil observasi
 * Ŷ = Nilai hasil prediksi
+* Precision
+Precision adalah metrik yang digunakan pada kasus klasifikasi untuk menghitung seberapa baik model dalam memprediksi kelas positif terhadap semua prediksi model berkelas positif. Untuk menghitung precision, perlu pemahaman mengenai TP, TN, FP,dan FN. Setelah memahami konsep tersebut, kemudian perhitungan nilai precision dapat menggunakan rumus berikut.
+![Rumus](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/presisi.png?raw=true)
+</br>
+
+* Recall
+Recall adalah metrik yang digunakan pada kasus klasifikasi yang digunakan untuk mengukur seberapa baik model dalam memprediksi kelas positif terhadap semua kelas data positif. Berikut adalah rumus untuk menghitungnya.
+![Rumus](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/recall.png?raw=true)
+Kelebihan dari metrik ini yaitu ikut menghitung kelas yang terprediksi negatif dari prediksi kelas positif (tidak seperti precision). Namun, metrik ini memiliki kekurangan ketika semua prediksi bernilai = 1 maka recall akan memiliki nilai 1 (tidak memperhitungkan prediksi negatif).
+</br>
+
+* f1-score
+F1-score adalah metrik yang digunakan pada kasus klasifikasi untuk mengukur seberapa baik hasil prediksi model (precision) dan seberapa lengkap hasil prediksi model tersebut (recall). Rumus untuk menghitungnya dapat dilihat di bawah.
+![Rumus](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/f_beta.png?raw=true)
+Note : Nilai beta = 1 (F1-score)
+</br>
+Kelebihan dari metrik ini yaitu dapat menutup semua kekurangan yang ada pada precision dan recall. Namun, F1-score tidak memperhitungkan hasil prediksi benar pada kelas negatif.
+
 
 Hasil dari evaluation model pada proyek ini mengenai prediksi penyakit jantung pada seseorang dapat dilihat pada gambar di bawah ini. 
 
