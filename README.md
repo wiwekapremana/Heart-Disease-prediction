@@ -6,11 +6,11 @@ Sindrom koroner akut atau serangan jantung adalah gangguan jantung serius ketika
 ## Business Understanding
 ### Problem Statement
 Berikut adalah problem statement dari proyek ini:
-* Apakah ada feature yang berhubungan dengan yang lain?</br>
+* Apa saja fitur yang berkorelasi dengan target (heart attack)?</br>
 * Model Machine Learning manakah yang memiliki accuracy tertinggi dalam menyelesaikan permasalahan ini?</br>
 ### Goals
 Berikut adalah goals yang ingin dicapai dalam proyek ini:
-*	Mengetahui korelasi antar feature dengan yang lain
+*	Mengetahui fitur yang berkorelasi dengan target(heart attack)
 *	Mengetahui model terbaik dalam Machine Learning untuk memprediksi penyakit serangan jantung pada seseorang.
 ### Solution Statements
 Untuk mencapai tujuan memprediksi masalah ini saya menggunakan tiga model Machine Learning. Dimana ketiga model ini cocok digunakan untuk data regresi karena output yang diprediksi adalah sebuah angka. Berikut penjelasan secara singkat mengenai tiga model yang saya gunakan:
@@ -74,7 +74,7 @@ Dapat dilihat bahwa terdapat outliers di features kita maka dari itu kita akan m
 **Data Pre-Processing:**
 </br>Mengecek korelasi.
 ![korelasi](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/korelasi.png?raw=true)
-Kita dapat melihat bahwa yang paling sedikit berhubungan dengan 'target'  adalah 'oldpeak' dan 'exang'.
+Kita dapat melihat bahwa yang memiliki korelasi terendah dengan 'target'  adalah 'fbs' dan 'chol' sedangkan 'oldpeak' dan 'exang' memiliki korelasi negatif yang paling kuat .
 
 )
 
@@ -85,20 +85,11 @@ Kemudian melakukan proses Train-Test Split. Dimana proses ini adalah pembagian d
 
 ![Train](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/train.png?raw=true)
 
-```python
-X = robust_df.values
-Y = heart['target'].values
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
-# Normalisasi Data
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-```
 ## Modeling
 Pada Proyek yang dibuat, digunakan model Machine Learning yaitu Logistic Regression, KNN, dan Random Forest. Model tersebut digunakan karena permasalahan dari model Machine Learning yang saya buat adalah permasalahan regresi. Pada tahap ini saya juga melakukan improvement terhadap model dengan menggunakan hyperparameter tuning. Pada Logistic Regression menggunakan parameter random_state=0, pada KNN menggunakan parameter n_neighbors=7, dan pada Random Forest menggunakan parameter n_estimators=100, random_state=0. Lalu untuk membandingkan ketiga model yang saya gunakan ini dilakukan perhitungan dari nilai accuracy_score dari data. Setelah dilakukan pelatihan maka dapat disimpulkan bahwa dengan menggunakan model Random Forest Regression dimana pada model ini memiliki accuracy tertinggi pada f1-score yaitu 100%.
 
 ## Evaluation
-Pada tahap evaluation akan dijelaskan mengenai metrik yang digunakan dalam prediksi proyek saya dengan menggunakan metrik accuracy. Dimana Akurasi merupakan metrik untuk menghitung nilai ketepatan model dalam memprediksi data dengan data yang sebenarnya. Semakin tinggi nilai accuracy, semakin dekat nilai yang diprediksi dan diamati. Untuk menghitung nilai dari Akurasi menggunakan rumus berikut:
+Pada tahap evaluation akan dijelaskan mengenai metrik yang digunakan dalam prediksi proyek saya dengan menggunakan metrik accuracy f1-score, recall, dan precision. Pada gambar di bawah ini ditampilkan secara detail hasil pengukuran model dengan algoritma Random Forest dengan metriks akurasi, _f1-score_, _recall_, dan _precision_.. Dimana Akurasi merupakan metrik untuk menghitung nilai ketepatan model dalam memprediksi data dengan data yang sebenarnya. Semakin tinggi nilai accuracy, semakin dekat nilai yang diprediksi dan diamati. Untuk menghitung nilai dari Akurasi menggunakan rumus berikut:
 
 ![Rumus](https://github.com/wiwekapremana/MLT-1-dicoding/blob/main/acc.png?raw=true)</br>
 
